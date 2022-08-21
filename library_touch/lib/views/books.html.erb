@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>books</title>
+    <style>
+    body {
+    background-color: coral;
+    }
+    h1 {
+    color: MediumPurple ;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Books</h1>
+    <% @library.books.uniq(&:title).each do |book| %>
+    <%= book.title %>
+    <br>
+    <% end %>
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>

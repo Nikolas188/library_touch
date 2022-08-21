@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>authors</title>
+    <style>
+      body {
+      background-color: coral;
+      text-align: center;
+      }
+      h1 {
+      color: rgb(255, 0, 0);
+         text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Authors</h1>
+    <% @library.authors.uniq(&:name).each do |author| %>
+    <%= author.name %>
+    <br>
+    <% end %>
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>

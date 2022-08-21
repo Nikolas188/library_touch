@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-require './autoload.rb'
+require './autoload'
 
-use
+run Middlewares::Racker.new

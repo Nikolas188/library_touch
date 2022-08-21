@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>authors</title>
+  </head>
+  <body>
+    <h1>orders</h1>
+    <% @library.orders.each do |order| %>
+    <%= "#{order.book.title}. #{order.date}. #{order.reader.email}" %>
+    <br>
+    <% end %>
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>

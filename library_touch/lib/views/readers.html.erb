@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>authors</title>
+  </head>
+  <body>
+    <h1>Readers</h1>
+    <% @library.readers.uniq(&:email).each do |reader| %>
+    <%= reader.email %>
+    <br>
+    <% end %>
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>
