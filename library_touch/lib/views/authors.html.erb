@@ -16,9 +16,22 @@
   <body>
     <h1>Authors</h1>
     <% @library.authors.uniq(&:name).each do |author| %>
-    <%= author.name %>
-    <br>
+    <h4><%= author.name %></h4>
+    <%= author.biography %>
     <% end %>
+    <form method="post">
+      <label for="name">Name:</label>
+      <br>
+      <input id="name" type="text" name="name">
+      <br>
+      <label for="biography">Biography:</label>
+      <br>
+      <input id="biography" type="text" name="biography">
+       <br>
+      <br>
+      <input type="submit" value="Save">
+    </form>
+    <br>
     <a href="/">BACK TO MAIN</a>
   </body>
 </html>

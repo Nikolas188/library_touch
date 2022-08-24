@@ -6,9 +6,22 @@
   <body>
     <h1>orders</h1>
     <% @library.orders.each do |order| %>
-    <%= "#{order.book.title}. #{order.date}. #{order.reader.email}" %>
+    <%= "#{order.book.author.name} - #{order.book.title}. #{order.date}. #{order.reader.email}" %>
     <br>
     <% end %>
+    <form id="create-reader" method="post">
+      <label for="book">Book:</label>
+      <br>
+      <input id="book" type="text" name="book">
+      <br>
+      <label for="reader">Reader:</label>
+      <input id="reader" type="text" name="reader">
+      <br>
+      <label for="date">Date:</label>
+      <input id="date" type="text" name="date">
+      <br>
+      <input type="submit" value="Save">
+    </form>
     <a href="/">BACK TO MAIN</a>
   </body>
 </html>

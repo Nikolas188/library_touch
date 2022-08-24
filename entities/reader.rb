@@ -20,8 +20,8 @@ class Reader
     validate_string(@name, 'name')
     validate_string(@email, 'email')
     validate_string(@street, 'street')
-    validate_number(@house, 'house')
-    validate_positive(@house, 'house')
+    # validate_number(@house, 'house')
+    # validate_positive(@house, 'house')
     validate_string(@city, 'city')
   end
 end
