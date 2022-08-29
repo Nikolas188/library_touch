@@ -9,17 +9,33 @@
     <%= "#{order.book.author.name} - #{order.book.title}. #{order.date}. #{order.reader.email}" %>
     <br>
     <% end %>
-    <form id="create-reader" method="post">
+    <form id="create-book" method="post">
       <label for="book">Book:</label>
+      <select name="book" form="create-book">
+      <% @library.books.uniq(&:title).each do |book| %>
+      <option value="<%= book.title %>">
+       <%= book.title %>
+      </option>
+      <% end %>
+      </select>
       <br>
-      <input id="book" type="text" name="book">
       <br>
       <label for="reader">Reader:</label>
-      <input id="reader" type="text" name="reader">
+      <select name="reader" form="create-reader">
+      <% @library.readers.uniq(&:email).each do |reader| %>
+      <option value="<%= reader.email %>">
+      <%= reader.email %>
+      </option>
+      <% end %>
+      </select>
+      <br>
       <br>
       <label for="date">Date:</label>
-      <input id="date" type="text" name="date">
-      <br>
+      <label for="date">Date:</label>
+      <select name="date" form="create-order">
+        <option value="<%= Date.today %>">
+          <%= Date.today %>
+        </option>
       <input type="submit" value="Save">
     </form>
     <a href="/">BACK TO MAIN</a>
