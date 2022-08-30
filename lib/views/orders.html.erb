@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>authors</title>
+    <title>orders</title>
   </head>
   <body>
     <h1>orders</h1>
@@ -9,9 +9,9 @@
     <%= "#{order.book.author.name} - #{order.book.title}. #{order.date}. #{order.reader.email}" %>
     <br>
     <% end %>
-    <form id="create-book" method="post">
+    <form id="create-order" method="post">
       <label for="book">Book:</label>
-      <select name="book" form="create-book">
+      <select name="book" form="create-order">
       <% @library.books.uniq(&:title).each do |book| %>
       <option value="<%= book.title %>">
        <%= book.title %>
@@ -21,8 +21,8 @@
       <br>
       <br>
       <label for="reader">Reader:</label>
-      <select name="reader" form="create-reader">
-      <% @library.readers.uniq(&:email).each do |reader| %>
+      <select name="reader" form="create-order">
+      <% @library.readers.each do |reader| %>
       <option value="<%= reader.email %>">
       <%= reader.email %>
       </option>
@@ -31,11 +31,7 @@
       <br>
       <br>
       <label for="date">Date:</label>
-      <label for="date">Date:</label>
-      <select name="date" form="create-order">
-        <option value="<%= Date.today %>">
-          <%= Date.today %>
-        </option>
+      <input type="date" name="date">
       <input type="submit" value="Save">
     </form>
     <a href="/">BACK TO MAIN</a>

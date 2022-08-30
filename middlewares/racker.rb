@@ -56,7 +56,7 @@ module Middlewares
 
     def create_reader(params)
       reader = Reader.new(params['name'], params['street'], params['email'],
-                          params['city'], params['house'].to_i)
+        params['city'], params['house'].to_i)
       @library.add(reader)
       @library.save
       respond(render('readers.html.erb'))
