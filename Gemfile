@@ -9,3 +9,7 @@ gem 'pry'
 gem 'psych'
 
 gem 'rubocop'
+
+gem 'rack'
+
+gem 'puma'

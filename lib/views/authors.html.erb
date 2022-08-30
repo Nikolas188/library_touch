@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>authors</title>
+    <style>
+      body {
+      background-color: coral;
+      text-align: center;
+      }
+      h1 {
+      color: rgb(255, 0, 0);
+         text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Authors</h1>
+    <% @library.authors.uniq(&:name).each do |author| %>
+    <h4><%= author.name %></h4>
+    <%= author.biography %>
+    <% end %>
+    <form method="post">
+      <label for="name">Name:</label>
+      <br>
+      <input id="name" type="text" name="name">
+      <br>
+      <label for="biography">Biography:</label>
+      <br>
+      <input id="biography" type="text" name="biography">
+       <br>
+      <br>
+      <input type="submit" value="Save">
+    </form>
+    <br>
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>

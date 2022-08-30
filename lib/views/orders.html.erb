@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>orders</title>
+  </head>
+  <body>
+    <h1>orders</h1>
+    <% @library.orders.each do |order| %>
+    <%= "#{order.book.author.name} - #{order.book.title}. #{order.date}. #{order.reader.email}" %>
+    <br>
+    <% end %>
+    <form id="create-order" method="post">
+      <label for="book">Book:</label>
+      <select name="book" form="create-order">
+      <% @library.books.uniq(&:title).each do |book| %>
+      <option value="<%= book.title %>">
+       <%= book.title %>
+      </option>
+      <% end %>
+      </select>
+      <br>
+      <br>
+      <label for="reader">Reader:</label>
+      <select name="reader" form="create-order">
+      <% @library.readers.each do |reader| %>
+      <option value="<%= reader.email %>">
+      <%= reader.email %>
+      </option>
+      <% end %>
+      </select>
+      <br>
+      <br>
+      <label for="date">Date:</label>
+      <input type="date" name="date">
+      <input type="submit" value="Save">
+    </form>
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>
